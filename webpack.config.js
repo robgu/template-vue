@@ -1,5 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
   entry: './src/main.js',
@@ -7,6 +8,9 @@ module.exports = {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
     filename: 'build.js'
+  },
+  resolve: {
+    extensions: ['', '.js', '.vue']
   },
   resolveLoader: {
     root: path.join(__dirname, 'node_modules'),
@@ -21,6 +25,10 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel',
         exclude: /node_modules/
+      },
+      {
+        test: /\.less/,
+        loader: ExtractTextPlugin.extract(['css', 'less'])
       },
       {
         test: /\.json$/,
