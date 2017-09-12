@@ -5,7 +5,7 @@ module.exports = {
         require(['./pages/Page1/index'], resolve)
       }
     },
-    '/page2': {
+    '/page2/:id': {
       name: 'page2',
       component: function (resolve) {
         require(['./pages/Page2/index'], resolve)

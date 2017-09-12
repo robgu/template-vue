@@ -24,3 +24,5 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 ## 路由
 - https://github.com/vuejs/vue-router/tree/v0.7.11/docs
 
+## 网络访问
+- https://github.com/pagekit/vue-resource/tree/0.7.0
