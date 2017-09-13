@@ -1,8 +1,8 @@
 import { state as vuex, mutations as vuexMutations } from 'pages/Vuex/state';
 
-import Vue from 'vue'
-import Vuex from 'vuex'
-import createLogger from 'vuex/logger'
+import Vue from 'vue';
+import Vuex from 'vuex';
+import createLogger from 'vuex/logger';
 
 Vue.use(Vuex)
 

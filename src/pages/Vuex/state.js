@@ -18,9 +18,6 @@ export const actions = {
     const data = await rest.get('/smm-2017-01-03.json');
     store.dispatch({ type: INIT, payload: data })
   },
-  changeOption: (store, arg) => {
-    console.warn(arg)
-  },
   goI18n: () => {
     router.go({ name: 'i18n' });
   }

@@ -8,9 +8,6 @@
     <li>事件绑定</li>
     <h1>{{ msg }}</h1>
     <zn-data :data="data" ></zn-data>
-    <input v-model="option" @change="changeOption" />
-    <span>option: {{option}}</span>
-
     <button @click="goI18n">前往国际化</button>
   </div>
 </template>
@@ -19,11 +16,6 @@
 import vuex from './state';
 
 export default {
-  data() {
-    return {
-      option: 1
-    }
-  },
   vuex,
   ready() {
     // page2/:id, 通过 params 获取
