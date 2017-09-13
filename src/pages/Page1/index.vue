@@ -1,8 +1,9 @@
 <template>
   <div>
     <h1>{{ msg }}</h1>
-    <a v-link="'/page2'">page2 link</a>
-    <button @click="goPage2">page2 button</button>
+    <a v-link="'/page2'">page2 - v-link</a>
+    <button @click="goPage2">page2 - button</button>
+    <button @click="changeMsgAsync"> async 更改文字</button>
   </div>
 </template>
 
@@ -22,18 +23,29 @@ export default {
       // with hot-reload because the reloaded component
       // preserves its current state and we are modifying
       // its initial state.
-      msg: 'Hello Vue! - page1'
+      msg: 'page1: 等待 1s async ready 会改变文字值'
     }
   },
   methods: {
     async goPage2() {
-      const data = await this.$http.get('smm-2017-01-03.json', { query: 1 });
-      console.warn(data)
+
+      // 下面 2 种方式是相同的, 无论哪种,都只能通过 url 传参数
+      // https://github.com/vuejs/vue-router/blob/v0.7.11/docs/zh-cn/api/go.md
+      // this.$router.go({
+      //   path: '/page2/cc',
+      //   query: { a: 1 },
+      // });
       this.$router.go({
-        path: '/page2/cc',
+        name: 'page2x',
         query: { a: 1 },
-        params: { b: { bb: 1 } }
-      }, { b: { bb: 1 } });
+        params: { id: 'cc' }
+      });
+    },
+    async changeMsgAsync() {
+      // 测试 method 中 async 写法是可行的
+      const { data } = await this.$http.get('smm-2017-01-03.json', { query: 1 });
+      console.warn(data)
+      this.msg = 'page1: ' + data.date;
     }
   },
   computed: {},
@@ -63,7 +75,7 @@ export default {
   async ready() {
     console.warn('4. ready before sleep')
     await sleep(1000)
-    this.msg = 'finished';
+    this.msg = 'page1: async finished';
     console.warn('4. ready after sleep')
   },
 
@@ -85,5 +97,10 @@ export default {
 <style lang="less" scoped>
 body {
   font-family: Helvetica, sans-serif;
+}
+
+button,
+a {
+  display: block;
 }
 </style>

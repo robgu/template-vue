@@ -22,10 +22,10 @@ export default {
 
   ready() {
     // page2/:id, 通过 params 获取
-    console.warn(this.$route.params.id)
+    console.warn('params', this.$route.params)
 
     // page2?a=xx 通过 query 获取
-    console.warn(this.$route.query.a)
+    console.warn('query', this.$route.query)
   }
 }
 </script>
