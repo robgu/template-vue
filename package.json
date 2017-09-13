@@ -3,6 +3,10 @@
   "description": "A Vue.js project",
   "author": "Rob.Gu <rob.gu@augmentum.com>",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tech-demo/vue1-vuex-webpack.git"
+  },
   "scripts": {
     "dev": "webpack-dev-server --inline --hot --port=8200",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
