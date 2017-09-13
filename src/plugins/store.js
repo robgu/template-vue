@@ -1,4 +1,4 @@
-import { state as vuex, mutations as vuexMutations } from 'pages/Vuex/state';
+import { state as vuex, mutations as vuexMutations } from 'pages/Vuex/state'
 
 import Vue from 'vue'
 import Vuex from 'vuex'
@@ -8,10 +8,10 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    vuex,
+    vuex
   },
   mutations: {
-    ...vuexMutations,
+    ...vuexMutations
   },
-  middlewares:[createLogger()],
+  middlewares: [createLogger()]
 })

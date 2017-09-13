@@ -1,6 +1,4 @@
-import Vue from 'vue';
-import ZNData from './ZNData';
+import Vue from 'vue'
+import ZNData from './ZNData'
 
-Vue.component('zn-data', ZNData);
-
-
+Vue.component('zn-data', ZNData)

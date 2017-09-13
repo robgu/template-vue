@@ -1,0 +1,26 @@
+{
+  "root": true,
+  "extends": "standard",
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "plugins": [
+    "html",
+    "vuefix"
+  ],
+  "ecmaFeatures": {
+    "arrowFunctions": true
+  },
+  "rules": {
+    "arrow-parens": 0,
+    "no-var": 2,
+    "object-curly-spacing": [
+      2,
+      "always"
+    ],
+    "no-debugger": 2,
+    "no-console": 2,
+    "no-alert": 2
+  }
+}
