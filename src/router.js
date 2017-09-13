@@ -1,4 +1,9 @@
-module.exports = {
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+
+Vue.use(VueRouter)
+
+const routers = {
     '/': {
       name: 'home',
       component: function (resolve) {
@@ -13,3 +18,10 @@ module.exports = {
       consumerRouteData: 123
     },
 };
+
+
+export default new VueRouter({
+  hashbang: true,
+  history: false,
+  saveScrollPosition: true,
+}).map(routers)

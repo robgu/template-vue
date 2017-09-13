@@ -1,25 +1,15 @@
 <template>
   <div id="app">
     <h1>{{ msg }}</h1>
+    <zn-data :data="data" ></zn-data>
   </div>
 </template>
 
 <script>
+import vuex from './state';
+
 export default {
-  data() {
-    return {
-      // note: changing this line won't causes changes
-      // with hot-reload because the reloaded component
-      // preserves its current state and we are modifying
-      // its initial state.
-      msg: 'Hello Vue! - page2'
-    }
-  },
-
-  vuex: {
-
-  },
-
+  vuex,
   ready() {
     // page2/:id, 通过 params 获取
     console.warn('consumerRouteData', this.$route.consumerRouteData)
@@ -27,11 +17,14 @@ export default {
 
     // page2?a=xx 通过 query 获取
     console.warn('query', this.$route.query)
+
+
+    this.init('arg1', 'arg2');
   }
 }
 </script>
 
-<style>
+<style  lang="less" scoped>
 body {
   font-family: Helvetica, sans-serif;
 }

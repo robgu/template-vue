@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>{{ msg }}</h1>
+    <zn-data :data="data" ></zn-data>
     <a v-link="{ name: 'vuex', params: { id: 123 }}">vuex - v-link</a>
     <button @click="goPage2">vuex - button</button>
     <button @click="changeMsgAsync">async 更改文字</button>
@@ -23,7 +24,8 @@ export default {
       // with hot-reload because the reloaded component
       // preserves its current state and we are modifying
       // its initial state.
-      msg: 'home: 等待 1s async ready 会改变文字值'
+      msg: 'home: 等待 3s async ready 会改变文字值',
+      data: null,
     }
   },
   methods: {
@@ -43,9 +45,8 @@ export default {
     },
     async changeMsgAsync() {
       // 测试 method 中 async 写法是可行的
-      const { data } = await this.$http.get('smm-2017-01-03.json', { query: 1 });
-      console.warn(data)
-      this.msg = 'home: ' + data.date;
+      this.data = await this.$http.get('/smm-2017-01-03.json');
+      console.warn('this.$http: ', this.data)
     }
   },
   computed: {},
@@ -88,7 +89,7 @@ export default {
 
   async destroyed() {
     console.warn('6. destroyed before sleep')
-    await sleep(1000)
+    await sleep(3000)
     console.warn('6. destroyed after sleep')
   }
 }
