@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       // note: changing this line won't causes changes
       // with hot-reload because the reloaded component
@@ -14,6 +14,18 @@ export default {
       // its initial state.
       msg: 'Hello Vue! - page2'
     }
+  },
+
+  vuex: {
+
+  },
+
+  ready() {
+    // page2/:id, 通过 params 获取
+    console.warn(this.$route.params.id)
+
+    // page2?a=xx 通过 query 获取
+    console.warn(this.$route.query.a)
   }
 }
 </script>
