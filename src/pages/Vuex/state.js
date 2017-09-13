@@ -1,4 +1,5 @@
 import rest from 'rest';
+import router from 'plugins/router';
 
 const INIT = 'vuex/INIT';
 
@@ -8,7 +9,7 @@ export const getters = {
   },
   data: ({ vuex }) => {
     return vuex.data;
-  },
+  }
 }
 
 export const actions = {
@@ -16,11 +17,17 @@ export const actions = {
     console.warn(store)
     const data = await rest.get('/smm-2017-01-03.json');
     store.dispatch({ type: INIT, payload: data })
+  },
+  changeOption: (store, arg) => {
+    console.warn(arg)
+  },
+  goI18n: () => {
+    router.go({ name: 'i18n' });
   }
 }
 
 export const state = {
-  msg: 'vuex: demo',
+  msg: 'vuex: msg',
   data: null,
 }
 

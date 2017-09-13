@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import axios from 'axios';
 
 axios.interceptors.request.use((config) => {
@@ -8,5 +9,8 @@ axios.interceptors.request.use((config) => {
 axios.interceptors.response.use((response) => {
   return response.data;
 })
+
+
+Vue.prototype.$http = axios;
 
 export default axios;

@@ -1,5 +1,12 @@
 <template>
   <div>
+    <h1>Vue, Vue router 学习要点</h1>
+    <li>vue 基本属性</li>
+    <li>vue 网络请求</li>
+    <li>vue 生命周期</li>
+    <li>vue 组件</li>
+    <li>vue router 定义以及页面之间传值</li>
+    <li>vue 与 async</li>
     <h1>{{ msg }}</h1>
     <zn-data :data="data" ></zn-data>
     <a v-link="{ name: 'vuex', params: { id: 123 }}">vuex - v-link</a>
@@ -16,11 +23,7 @@ export default {
   props: ['msg2'],
   data() {
     return {
-      // note: changing this line won't causes changes
-      // with hot-reload because the reloaded component
-      // preserves its current state and we are modifying
-      // its initial state.
-      msg: 'home: 等待 3s async ready 会改变文字值',
+      msg: '等待 3s async ready 会改变文字值',
       data: null,
     }
   },
@@ -72,7 +75,7 @@ export default {
   async ready() {
     console.warn('4. ready before sleep')
     await Thread.sleep(1000)
-    this.msg = 'home: async finished';
+    this.msg = 'async finished';
     console.warn('4. ready after sleep')
   },
 

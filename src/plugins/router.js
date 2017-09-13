@@ -17,6 +17,12 @@ const routers = {
       },
       consumerRouteData: 123
     },
+    '/i18n': {
+      name: 'i18n',
+      component: function (resolve) {
+        require(['pages/I18N'], resolve)
+      },
+    },
 };
 
 
