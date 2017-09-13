@@ -1,14 +1,15 @@
 module.exports = {
-    '/page1': {
-      name: 'page1x',
+    '/': {
+      name: 'home',
       component: function (resolve) {
-        require(['./pages/Page1/index'], resolve)
-      }
+        require(['./pages/Home/index'], resolve)
+      },
     },
-    '/page2/:id': {
-      name: 'page2x',
+    '/vuex/:id': {
+      name: 'vuex',
       component: function (resolve) {
-        require(['./pages/Page2/index'], resolve)
-      }
+        require(['./pages/Vuex/index'], resolve)
+      },
+      consumerRouteData: 123
     },
 };
