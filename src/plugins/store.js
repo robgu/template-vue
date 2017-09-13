@@ -1,4 +1,4 @@
-import { state as vuex, mutations as vuexMutations } from './pages/Vuex/state';
+import { state as vuex, mutations as vuexMutations } from 'pages/Vuex/state';
 
 import Vue from 'vue'
 import Vuex from 'vuex'

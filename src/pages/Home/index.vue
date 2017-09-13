@@ -9,11 +9,7 @@
 </template>
 
 <script>
-const sleep = (interval) => {
-  return new Promise((resolve) => {
-    setTimeout(resolve, interval);
-  });
-};
+import Thread from 'plugins/thread';
 
 export default {
   el: '',
@@ -55,27 +51,27 @@ export default {
   // 不建议使用 async, 即使使用了也不会 block 正常流程
   created() {
     console.warn('1. created before sleep')
-    sleep(1000)
+    Thread.sleep(1000)
     console.warn('1. created after sleep')
   },
 
   // 不建议使用 async, 即使使用了也不会 block 正常流程
   beforeCompile() {
     console.warn('2. beforeCompile before sleep')
-    sleep(1000)
+    Thread.sleep(1000)
     console.warn('2. beforeCompile after sleep')
   },
 
   // 不建议使用 async, 即使使用了也不会 block 正常流程
   compiled() {
     console.warn('3. compiled before sleep')
-    sleep(1000)
+    Thread.sleep(1000)
     console.warn('3. compiled after sleep')
   },
 
   async ready() {
     console.warn('4. ready before sleep')
-    await sleep(1000)
+    await Thread.sleep(1000)
     this.msg = 'home: async finished';
     console.warn('4. ready after sleep')
   },
@@ -83,13 +79,13 @@ export default {
   // 不建议使用 async, 即使使用了也不会 block 正常流程
   beforeDestroy() {
     console.warn('5. beforeDestroy before sleep')
-    sleep(1000)
+    Thread.sleep(1000)
     console.warn('5. beforeDestroy after sleep')
   },
 
   async destroyed() {
     console.warn('6. destroyed before sleep')
-    await sleep(3000)
+    await Thread.sleep(3000)
     console.warn('6. destroyed after sleep')
   }
 }

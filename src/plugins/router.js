@@ -7,13 +7,13 @@ const routers = {
     '/': {
       name: 'home',
       component: function (resolve) {
-        require(['./pages/Home/index'], resolve)
+        require(['pages/Home'], resolve)
       },
     },
     '/vuex/:id': {
       name: 'vuex',
       component: function (resolve) {
-        require(['./pages/Vuex/index'], resolve)
+        require(['pages/Vuex'], resolve)
       },
       consumerRouteData: 123
     },

@@ -2,7 +2,7 @@
   <router-view></router-view>
 </template>
 <script>
-import store from './store';
+import store from 'plugins/store';
 
 export default {
   store

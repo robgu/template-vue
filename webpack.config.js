@@ -10,7 +10,12 @@ module.exports = {
     filename: 'build.js'
   },
   resolve: {
-    extensions: ['', '.js', '.vue']
+    extensions: ['', '.js', '.vue'],
+    alias: {
+      rest: path.resolve(__dirname, 'src/plugins/rest'),
+      pages: path.resolve(__dirname, 'src/pages'),
+      plugins: path.resolve(__dirname, 'src/plugins'),
+    }
   },
   resolveLoader: {
     root: path.join(__dirname, 'node_modules'),
