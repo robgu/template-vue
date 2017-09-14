@@ -24,7 +24,7 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
   /plugins                  封装和业务无关通用的代码
   /pages
     /index.vue              页面入口文件
-    /state.js               vuex 文件,和 page 一一对应
+    /mixins.js               mixins 文件,和 page 一一对应
 ```
 
 # Dependencies

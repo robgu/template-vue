@@ -1,4 +1,7 @@
-import Vue from 'vue'
 import ZNData from './ZNData'
 
-Vue.component('zn-data', ZNData)
+export default class Components {
+  static install = (Vue) => {
+    Vue.component('zn-data', ZNData)
+  }
+}

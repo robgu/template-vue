@@ -1,5 +1,5 @@
-var path = require('path')
-var webpack = require('webpack')
+let path = require('path')
+let webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
@@ -14,11 +14,11 @@ module.exports = {
     alias: {
       rest: path.resolve(__dirname, 'src/plugins/rest'),
       pages: path.resolve(__dirname, 'src/pages'),
-      plugins: path.resolve(__dirname, 'src/plugins'),
+      plugins: path.resolve(__dirname, 'src/plugins')
     }
   },
   resolveLoader: {
-    root: path.join(__dirname, 'node_modules'),
+    root: path.join(__dirname, 'node_modules')
   },
   module: {
     loaders: [
@@ -57,11 +57,11 @@ module.exports = {
     historyApiFallback: true,
     noInfo: true
   },
-  devtool: '#eval-source-map'
+  devtool: 'sourcemap'
 }
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports.devtool = '#source-map'
+  module.exports.devtool = 'sourcemap'
   // http://vue-loader.vuejs.org/en/workflow/production.html
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({

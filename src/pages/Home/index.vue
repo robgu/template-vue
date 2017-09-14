@@ -9,8 +9,8 @@
     <li>vue 与 async</li>
     <h1>{{ msg }}</h1>
     <zn-data :data="data" ></zn-data>
-    <a v-link="{ name: 'vuex', params: { id: 123 }}">vuex - v-link</a>
-    <button @click="goPage2">vuex - button</button>
+    <a v-link="{ name: 'i18n', params: { id: 123 }}">i18n - v-link</a>
+    <button @click="goPage2">i18n - button</button>
     <button @click="changeMsgAsync">async 更改文字</button>
   </div>
 </template>
@@ -33,11 +33,11 @@ export default {
       // 下面 2 种方式是相同的, 无论哪种,都只能通过 url 传参数
       // https://github.com/vuejs/vue-router/blob/v0.7.11/docs/zh-cn/api/go.md
       // this.$router.go({
-      //   path: '/vuex/cc',
+      //   path: '/i18n/cc',
       //   query: { a: 1 },
       // });
       this.$router.go({
-        name: 'vuex',
+        name: 'i18n',
         query: { a: 1 },
         params: { id: 'cc' }
       });

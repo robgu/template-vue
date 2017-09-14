@@ -1,7 +1,4 @@
-import Vue from 'vue'
 import VueRouter from 'vue-router'
-
-Vue.use(VueRouter)
 
 const routers = {
   '/': {
@@ -10,23 +7,27 @@ const routers = {
       require(['pages/Home'], resolve)
     }
   },
-  '/vuex/:id': {
-    name: 'vuex',
-    component: function (resolve) {
-      require(['pages/Vuex'], resolve)
-    },
-    consumerRouteData: 123
-  },
-  '/i18n': {
+  '/i18n/:id': {
     name: 'i18n',
     component: function (resolve) {
       require(['pages/I18N'], resolve)
-    }
+    },
+    consumerRouteData: 123
   }
 }
 
-export default new VueRouter({
-  hashbang: true,
-  history: false,
-  saveScrollPosition: true
-}).map(routers)
+export default class Router {
+  static instance = null;
+  static install = (Vue) => {
+    Vue.use(VueRouter)
+    Router.instance = new VueRouter({
+      hashbang: true,
+      history: false,
+      saveScrollPosition: true
+    }).map(routers)
+  }
+
+  static start = (...args) => {
+    Router.instance.start(...args)
+  }
+}
