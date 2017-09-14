@@ -1,6 +1,5 @@
 let path = require('path')
 let webpack = require('webpack')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
   entry: './src/main.js',
@@ -17,37 +16,26 @@ module.exports = {
       plugins: path.resolve(__dirname, 'src/plugins')
     }
   },
-  resolveLoader: {
-    root: path.join(__dirname, 'node_modules')
-  },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.vue$/,
-        loader: 'vue'
+        loader: 'vue-loader',
+        options: {
+          loaders: {
+          }
+          // other vue-loader options go here
+        }
       },
       {
         test: /\.js$/,
-        loader: 'babel',
+        loader: 'babel-loader',
         exclude: /node_modules/
       },
       {
-        test: /\.less/,
-        loader: ExtractTextPlugin.extract(['css', 'less'])
-      },
-      {
-        test: /\.json$/,
-        loader: 'json'
-      },
-      {
-        test: /\.html$/,
-        loader: 'vue-html'
-      },
-      {
         test: /\.(png|jpg|gif|svg)$/,
-        loader: 'url',
-        query: {
-          limit: 10000,
+        loader: 'file-loader',
+        options: {
           name: '[name].[ext]?[hash]'
         }
       }
@@ -57,11 +45,14 @@ module.exports = {
     historyApiFallback: true,
     noInfo: true
   },
-  devtool: 'sourcemap'
+  performance: {
+    hints: false
+  },
+  devtool: '#eval-source-map'
 }
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports.devtool = 'sourcemap'
+  module.exports.devtool = '#source-map'
   // http://vue-loader.vuejs.org/en/workflow/production.html
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
@@ -70,10 +61,13 @@ if (process.env.NODE_ENV === 'production') {
       }
     }),
     new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
       compress: {
         warnings: false
       }
     }),
-    new webpack.optimize.OccurenceOrderPlugin()
+    new webpack.LoaderOptionsPlugin({
+      minimize: true
+    })
   ])
 }

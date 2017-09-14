@@ -1,4 +1,4 @@
-# vue1-webpack
+# vue2-webpack
 
 > A Vue.js project
 
