@@ -5,7 +5,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git@github.com:tech-demo/vue1-vuex-webpack.git"
+    "url": "git@github.com:tech-demo/vue-webpack.git"
   },
   "scripts": {
     "dev": "webpack-dev-server --inline --hot --port=8200",
